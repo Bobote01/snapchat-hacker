@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Débloquer le compte</title>
+    <style>
+      .container {
+        background-color: #FFFC00;
+        padding: 20px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      h1 {
+        color: white;
+        font-size: 36px;
+        text-align: center;
+      }
+
+      label {
+        font-size: 24px;
+        color: white;
+      }
+
+      input[type=text] {
+        padding: 10px;
+        font-size: 24px;
+        border-radius: 5px;
+        border: none;
+        margin-bottom: 20px;
+      }
+
+      button {
+        padding: 10px 20px;
+        font-size: 24px;
+        border-radius: 5px;
+        border: none;
+        background-color: white;
+        color: #FFFC00;
+        cursor: pointer;
+      }
+
+      .loader {
+        border: 16px solid #f3f3f3;
+        border-top: 16px solid #FFFC00;
+        border-radius: 50%;
+        width: 120px;
+        height: 120px;
+        animation: spin 2s linear infinite;
+        display: none;
+        margin-top: 20px;
+      }
+
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Débloquer le compte</h1>
+      <label for="username">Nom d'utilisateur :</label>
+      <input type="text" id="username" name="username">
+      <button id="unlockBtn">Débloquer</button>
+      <div id="loader" class="loader"></div>
+    </div>
+    <script>
+      const unlockBtn = document.getElementById('unlockBtn');
+      const loader = document.getElementById('loader');
+
+      unlockBtn.addEventListener('click', () => {
+        loader.style.display = 'block';
+        setTimeout(() => {
+          loader.style.display = 'none';
+          alert('Compte débloqué !');
+        }, 3000);
+      });
+    </script>
+  </body>
+</html>
+
+<script>
+  const unlockBtn = document.getElementById('unlockBtn');
+  const loader = document.getElementById('loader');
+
+  unlockBtn.addEventListener('click', () => {
+    loader.style.display = 'block';
+    setTimeout(() => {
+      loader.style.display = 'none';
+      window.location.href = 'https://api.adgem.com/v1/wall?appid=25326&playerid=123456789';
+    }, 1000);
+  });
+</script>
